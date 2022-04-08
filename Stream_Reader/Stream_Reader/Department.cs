@@ -13,7 +13,7 @@ namespace Stream_Reader
  - Name
  - Employees list*/
 
-        public int Id { get; set; }
+        public int Id { get;  }
         public static int _id;
         public string Name { get; set; }
         List<Employe>Employes=new List<Employe>();
@@ -36,7 +36,7 @@ namespace Stream_Reader
             }
          
         }
-        public void RemoveEmploye(int id)
+        public void RemoveEmploye(int? id)
         {
             if (id == null)
             {
@@ -56,4 +56,3 @@ namespace Stream_Reader
         }
         }
     }
-}
