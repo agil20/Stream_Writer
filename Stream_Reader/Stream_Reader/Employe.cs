@@ -27,7 +27,7 @@ Employee class
         public Employe()
         {
             _id++;
-            _id = Id;
+            
 
         }
       

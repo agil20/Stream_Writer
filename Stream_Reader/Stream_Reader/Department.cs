@@ -12,16 +12,14 @@ namespace Stream_Reader
  - Id
  - Name
  - Employees list*/
-        public static int _id;
-        public int Id { get { return _id; } set { } }
+      
         public Employe employe { get; set; }
         public string Name { get; set; }
         public List<Employe> Employes;
         public Department()
         {
             Employes   = new List<Employe>();
-            _id++;
-            Id = _id;
+          
             
         }
         
@@ -32,37 +30,29 @@ namespace Stream_Reader
         {
             Employes.Add(employe);
         }
-        public void GetEmployeeById(int ? id)
+        public void GetEmployeeById(int  id)
         {
-            
-                foreach (var item in Employes)
-                {
-                    if (item.Id==id)
-                    {
-                        item.ShowInfo();
-                    }
 
-                }
+        
+            foreach (var item in Employes.FindAll(i => i.Id == id) )
+            {
+                item.ShowInfo();
+            }
+
+            
+
+          
             
          
         }
-        public void RemoveEmploye(int? id)
+        public void RemoveEmploye(int id)
         {
-            if (id == null)
-            {
-                throw new Exception("Not Found ");
-            }
-            else
-            {
+            
+                Employes.RemoveAll(item => item.Id == id);
+            
+        
 
-            }
-            foreach (var item in Employes)
-            {
-                if (id == item.Id)
-                {
-                    Employes.RemoveAt(item.Id);
-                }
-            }
+
         }
-        }
+    }
     }
