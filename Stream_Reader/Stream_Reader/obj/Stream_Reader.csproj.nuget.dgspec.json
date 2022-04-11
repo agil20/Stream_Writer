@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Source\\Repos\\Stream_Writerdd\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj": {}
+    "C:\\Users\\User\\Source\\Repos\\Stream_Writerlll\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Source\\Repos\\Stream_Writerdd\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj": {
+    "C:\\Users\\User\\Source\\Repos\\Stream_Writerlll\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\Stream_Writerdd\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\Stream_Writerlll\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj",
         "projectName": "Stream_Reader",
-        "projectPath": "C:\\Users\\User\\Source\\Repos\\Stream_Writerdd\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj",
+        "projectPath": "C:\\Users\\User\\Source\\Repos\\Stream_Writerlll\\Stream_Reader\\Stream_Reader\\Stream_Reader.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Source\\Repos\\Stream_Writerdd\\Stream_Reader\\Stream_Reader\\obj\\",
+        "outputPath": "C:\\Users\\User\\Source\\Repos\\Stream_Writerlll\\Stream_Reader\\Stream_Reader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

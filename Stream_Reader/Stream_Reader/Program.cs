@@ -9,22 +9,18 @@ namespace Stream_Reader
     {
         static void Main(string[] args)
         {
-            Directory.CreateDirectory(@"C:\Users\User\Desktop\File");
+            if (!Directory.Exists(@"C:\Users\User\Desktop\File"))
+            {
+                Directory.CreateDirectory(@"C:\Users\User\Desktop\File");
+
+            }
+            
             if (!(File.Exists(@"C:\Users\User\Desktop\File\database.json")))
             {
                 File.Create(@"C:\Users\User\Desktop\File\database.json");
 
             }
-            /*Menu
-1. Add employee
-2. Get employee by id
-3. Remove employee
-0. Quit
-
-1-ci əməliyyatda istifadəçidən employee-nin bütün məlumatları istənəcək yeni bir employee
-obyekti yaranacaq və add methodu vasitəsilə listə əlavə oluncaq daha sonra həmin listi
-json-a serialize edəcəksiniz və həmin serialize olunmuş obyekti database.json faylına əlavə
-edəcəksiniz.*/
+      
            
             Department department = new Department();
             int secim;
@@ -40,12 +36,12 @@ edəcəksiniz.*/
 
                 {
                     case 1:
-                        Employe employe = new Employe();
+
                         Console.WriteLine("Ad daxil edin");
-                        employe.Name = Console.ReadLine();
+                        string Name = Console.ReadLine();
                         Console.WriteLine("Maasi qey edin");
-                        employe.Salary = Convert.ToInt16(Console.ReadLine());
-                    
+                        int Salary = Convert.ToInt16(Console.ReadLine());
+                        Employe employe = new Employe(Name, Salary);
 
                         department.AddEmploye(employe);
                     
