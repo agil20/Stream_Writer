@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -29,22 +30,52 @@ edəcəksiniz.*/
                 "Remove employee\n" +
                 "Qiut\n");
             Console.WriteLine("secin");
+            Department department = new Department();
             int secim = Convert.ToInt16(Console.ReadLine());
             switch (secim)
+
             {
                 case 1: Employe employe = new Employe();
                     Console.WriteLine("Ad daxil edin");
                     employe.Name = Console.ReadLine();
                     Console.WriteLine("Maasi qey edin");
                     employe.Salary=Convert.ToInt16(Console.ReadLine());
-                List<Employe> employeList = new List<Employe>();
-                   Department department = new Department();
-                    department.AddEmploye(employe); break;
+               
+                
+                    department.AddEmploye(employe); 
+
+                    string result =    JsonConvert.SerializeObject(department);
+                    string path = (@"C:\Users\User\Desktop\File\database.json");
+                    using (StreamWriter stream =new(path))
+                    {
+                        stream.WriteLine(result);
+                    } break;
+                    case 2:
                    
-                    
+                    string result2;
+                    string path2 = (@"C:\Users\User\Desktop\File\database.json");
+                    Console.WriteLine("Id daxil edin");
+                    int idd=Convert.ToInt32(Console.ReadLine());
+                    using (StreamReader stream = new(path2))
+                    {
+                        result2 = stream.ReadToEnd();
+                    }
+                    Department department3 = JsonConvert.DeserializeObject<Department>(result2);
+                    foreach (var item in department3.Employes)
+                    {
+                        if (item.Id==idd)
+                        { 
+                          department.GetEmployeeById(idd);
+                        }
+
+                    } break;
+
                 default:
                     break;
-            }
+            } /*
+2-ci əməliyyatda istidaçi bir id daxil edəcək daha sonra database.json faylının oxuyacaqsız
+axıra qədər ordan gələn string-i deserialize edəcəksizin department obyektinə və GetEmployeeById
+methodu vasitəsilə həmin id-li employee obyektini tapacaqsız*/
 
 
 

@@ -16,7 +16,7 @@ namespace Stream_Reader
         public int Id { get;  }
         public static int _id;
         public string Name { get; set; }
-        List<Employe>Employes=new List<Employe>();
+      public  List<Employe>Employes=new List<Employe>();
         /*- AddEmployee() - employee obyekti qebul edecek
 - GetEmployeeById() - id qebul edecek
 - RemoveEmployee() - id qebul edecek*/
