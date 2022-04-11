@@ -25,15 +25,17 @@ namespace Stream_Reader
 obyekti yaranacaq və add methodu vasitəsilə listə əlavə oluncaq daha sonra həmin listi
 json-a serialize edəcəksiniz və həmin serialize olunmuş obyekti database.json faylına əlavə
 edəcəksiniz.*/
-            Console.WriteLine("1.Add emloyee\n" +
-                "2.Get employe by id\n" +
-                "3.Remove employee\n" +
-                "0.Qiut\n");
-            Console.WriteLine("secin");
+           
             Department department = new Department();
-            int secim = Convert.ToInt16(Console.ReadLine());
+            int secim;
             do
             {
+                Console.WriteLine("1.Add emloyee\n" +
+                  "2.Get employe by id\n" +
+                  "3.Remove employee\n" +
+                  "0.Qiut\n");
+                Console.WriteLine("secin");
+                secim=Convert.ToInt32(Console.ReadLine());
                 switch (secim)
 
                 {
@@ -43,9 +45,10 @@ edəcəksiniz.*/
                         employe.Name = Console.ReadLine();
                         Console.WriteLine("Maasi qey edin");
                         employe.Salary = Convert.ToInt16(Console.ReadLine());
-
+                    
 
                         department.AddEmploye(employe);
+                    
 
                         string result = JsonConvert.SerializeObject(department);
                         string path = (@"C:\Users\User\Desktop\File\database.json");
@@ -53,6 +56,8 @@ edəcəksiniz.*/
                         {
                             stream.WriteLine(result);
                         }
+                        employe.ShowInfo();
+
                         break;
                     case 2:
 
@@ -67,10 +72,7 @@ edəcəksiniz.*/
                         Department department2 = JsonConvert.DeserializeObject<Department>(result2);
                         foreach (var item in department2.Employes)
                         {
-                            if (item.Id == idd)
-                            {
-                                department.GetEmployeeById(idd);
-                            }
+                          department.GetEmployeeById(item.Id);
 
                         }
                         break;
@@ -86,10 +88,8 @@ edəcəksiniz.*/
                         Department department3 = JsonConvert.DeserializeObject<Department>(result3);
                         foreach (var item in department3.Employes)
                         {
-                            if (item.Id == iddd)
-                            {
-                                department3.RemoveEmploye(iddd);
-                            }
+
+                            department.RemoveEmploye(item.Id);
 
                         }
                         string result4 = JsonConvert.SerializeObject(department3);
@@ -103,7 +103,7 @@ edəcəksiniz.*/
                     case 0: break;
                 }
 
-            } while (secim<0&& secim >3);  /*
+            } while (true);  /*
 3-cü əməliyyatda isə yenə 2 ci əməliyyatdakı kimi database.json oxunacaq deserialize olunacaq
 department obyektinə həmin idli employee tapılacaq və listdən silinəcək daha sonra həmin depatment
 yenidən obyekti serialize olunacaq json-a və database.json file-na yazılacaq.*/

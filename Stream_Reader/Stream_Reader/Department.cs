@@ -12,11 +12,19 @@ namespace Stream_Reader
  - Id
  - Name
  - Employees list*/
-
-        public int Id { get;  }
         public static int _id;
+        public int Id { get { return _id; } set { } }
+        public Employe employe { get; set; }
         public string Name { get; set; }
-      public  List<Employe>Employes=new List<Employe>();
+        public List<Employe> Employes;
+        public Department()
+        {
+            Employes   = new List<Employe>();
+            _id++;
+            Id = _id;
+            
+        }
+        
         /*- AddEmployee() - employee obyekti qebul edecek
 - GetEmployeeById() - id qebul edecek
 - RemoveEmployee() - id qebul edecek*/
@@ -26,12 +34,7 @@ namespace Stream_Reader
         }
         public void GetEmployeeById(int ? id)
         {
-            if (id == null)
-            {
-                throw new Exception("Not Found ");
-            }
-            else
-            {
+            
                 foreach (var item in Employes)
                 {
                     if (item.Id==id)
@@ -40,7 +43,7 @@ namespace Stream_Reader
                     }
 
                 }
-            }
+            
          
         }
         public void RemoveEmploye(int? id)

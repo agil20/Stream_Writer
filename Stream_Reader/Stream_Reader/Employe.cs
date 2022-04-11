@@ -15,7 +15,7 @@ Employee class
 - Salary
 - ShowInfo()*/
         public static int _id;
-        public int Id { get;  }
+        public int Id { get { return _id; } private set { } }
         public string Name { get; set; }
         public int Salary { get; set; }
         public void ShowInfo()
@@ -27,8 +27,10 @@ Employee class
         public Employe()
         {
             _id++;
+            _id = Id;
 
         }
+      
 
 
 
