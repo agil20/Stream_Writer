@@ -32,7 +32,14 @@ namespace Stream_Reader
             }
             else
             {
-                Employes.FindAll(x => x.Id == id);
+                foreach (var item in Employes)
+                {
+                    if (item.Id==id)
+                    {
+                        item.ShowInfo();
+                    }
+
+                }
             }
          
         }
